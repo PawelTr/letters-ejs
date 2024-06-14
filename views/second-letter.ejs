@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@100;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap&subset=cyrillic-ext');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container"
+        style="margin: 0;padding: 0;display: flex;flex-direction: column;align-items: center;width: 100%;flex: 1;">
+        <header style="width: 100%;display: flex;justify-content: center;margin: 26px 0 60px;">
+            <div class="logo-header">
+                <img src="/images/logo.png" alt="logo-image" class="logo-header-img"
+                    style="width: 125px; height: 44px;">
+            </div>
+        </header>
+        <main style="flex: 1;width: 100%;display: flex;justify-content: center;">
+            <div class="content" style="width: 90%;max-width: 598px;text-align: center;">
+                <h1 class="content-heading"
+                    style="color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 40px; font-style: normal; font-weight: 700; font-size: 24px; margin: 20px 0;">
+                    Подтверждение адреса электронной почты
+                </h1>
+                <p class="content-text"
+                    style="color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 22px; font-style: normal; font-weight: 400; font-size: 16px; margin-bottom: 40px;">
+                    Для подтверждения регистрации на платформе, введите код указанный ниже
+                </p>
+                <div class="container-code"
+                    style="width: 100%; padding: 24px 0; margin-bottom: 26px; border-radius: 10px; background-color: rgba(245, 245, 245, 1);">
+                    <h3 class="container-code-text"
+                        style="color: rgba(100, 100, 100, 1); font-family: 'Manrope', sans-serif; line-height: 20px; font-style: normal; font-weight: 500; font-size: 16px; margin-bottom: 12px;">
+                        Код подтверждения
+                    </h3>
+                    <p class="container-code-numbers"
+                        style="color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 40px; font-style: normal; font-weight: 700; font-size: 24px; margin-bottom: 24px;">
+                        <%= code %>
+                    </p>
+                    <button class="container-code-btn-copy"
+                        style="cursor: pointer; width: 100%; max-width: 334px; height: 54px; border: none; border-radius: 10px; background-color: rgba(28, 24, 21, 1); color: rgba(255, 255, 255, 1); font-family: 'Manrope', sans-serif; line-height: 22px; font-style: normal; font-weight: 600; font-size: 18px;">
+                        Скопировать код подтверждения
+                    </button>
+                </div>
+            </div>
+        </main>
+        <footer style="width: 100%">
+            <div class="footer"
+                style="width: 100%;display: flex;align-items: center;flex-direction: column;background-color: rgba(225, 225, 225, 1);padding: 20px 0;">
+                <span class="footer-text-container" style="display: flex;">
+                    <p class="footer-text-footer"
+                        style="text-align: center; cursor: pointer; color: rgba(28, 24, 21, 1);  font-family: 'Manrope', sans-serif; line-height: 18px; font-style: normal; font-weight: 400; font-size: 14px; margin: 26px 5px 23px;">
+                        Политика конфиденциальности</p>
+                    <p class="footer-text-footer"
+                        style="text-align: center; cursor: pointer; color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 18px; font-style: normal; font-weight: 400; font-size: 14px; margin: 26px 5px 23px;">
+                        Пользовательское соглашение</p>
+                </span>
+                <img src="/images/logo.png" alt="logo-faces" class="logo-footer-img"
+                    style="width: 110px; height: 38px; margin-bottom: 12px;">
+                <p class="footer-email-name"
+                    style="cursor: pointer; color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 17px; font-style: normal; font-weight: 400; font-size: 13px; margin-bottom: 12px;">
+                    faces-castings&#64;gmail.com</p>
+                <img src="/images/telegram.png" alt="telegram" class="footer-telegram-image"
+                    style="cursor: pointer; width: 28px; height: 28px; margin-bottom: 20px;">
+                <p class="footer-bottom-text"
+                    style="color: rgba(28, 24, 21, 1); font-family: 'Roboto', sans-serif; line-height: 14px; font-style: normal; font-weight: 300; font-size: 13px; margin-bottom: 24px;">
+                    &#169; 2023 FACES
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
