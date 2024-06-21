@@ -31,11 +31,26 @@
             max-width: 100%;
             height: auto;
         }
+
+        .container-code-btn-copy {
+            cursor: pointer;
+            width: 100%;
+            max-width: 334px;
+            height: 54px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgba(28, 24, 21, 1);
+            color: rgba(255, 255, 255, 1);
+            font-family: 'Manrope', sans-serif;
+            line-height: 22px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+        }
     </style>
 </head>
 
 <body>
-
     <div class="container"
         style="margin: 0;padding: 0;display: flex;flex-direction: column;align-items: center;width: 100%;flex: 1;">
         <header style="width: 100%;display: flex;justify-content: center;margin: 26px 0 60px;">
@@ -64,38 +79,58 @@
                         style="color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 40px; font-style: normal; font-weight: 700; font-size: 24px; margin-bottom: 24px;">
                         <%= code %>
                     </p>
-                    <button class="container-code-btn-copy"
-                        style="cursor: pointer; width: 100%; max-width: 334px; height: 54px; border: none; border-radius: 10px; background-color: rgba(28, 24, 21, 1); color: rgba(255, 255, 255, 1); font-family: 'Manrope', sans-serif; line-height: 22px; font-style: normal; font-weight: 600; font-size: 18px;">
-                        Скопировать код подтверждения
+                    <button class="container-code-btn-copy" onclick="copyCode()">
+                        <span>Скопировать код подтверждения</span>
                     </button>
                 </div>
             </div>
         </main>
-        <footer style="width: 100%">
-            <div class="footer"
-                style="width: 100%;display: flex;align-items: center;flex-direction: column;background-color: rgba(225, 225, 225, 1);padding: 20px 0;">
-                <span class="footer-text-container" style="display: flex;">
-                    <p class="footer-text-footer"
-                        style="text-align: center; cursor: pointer; color: rgba(28, 24, 21, 1);  font-family: 'Manrope', sans-serif; line-height: 18px; font-style: normal; font-weight: 400; font-size: 14px; margin: 26px 5px 23px;">
-                        Политика конфиденциальности</p>
-                    <p class="footer-text-footer"
-                        style="text-align: center; cursor: pointer; color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 18px; font-style: normal; font-weight: 400; font-size: 14px; margin: 26px 5px 23px;">
-                        Пользовательское соглашение</p>
-                </span>
+        <footer
+            style="width: 100%; margin-top: auto; display: flex; align-items: center; flex-direction: column; background-color: rgba(225, 225, 225, 1); padding: 20px 0;">
+            <div class="footer-text-container"
+                style="display: flex; justify-content: center; flex-direction: column; align-items: center; flex-wrap: wrap;">
                 <img src="/images/logo.png" alt="logo-faces" class="logo-footer-img"
                     style="width: 110px; height: 38px; margin-bottom: 12px;">
-                <p class="footer-email-name"
-                    style="cursor: pointer; color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 17px; font-style: normal; font-weight: 400; font-size: 13px; margin-bottom: 12px;">
-                    faces-castings&#64;gmail.com</p>
-                <img src="/images/telegram.png" alt="telegram" class="footer-telegram-image"
-                    style="cursor: pointer; width: 28px; height: 28px; margin-bottom: 20px;">
-                <p class="footer-bottom-text"
-                    style="color: rgba(28, 24, 21, 1); font-family: 'Roboto', sans-serif; line-height: 14px; font-style: normal; font-weight: 300; font-size: 13px; margin-bottom: 24px;">
-                    &#169; 2023 FACES
-                </p>
+                <span class="footer-text-container" style="display: flex;">
+                    <a href="<%= privacyPolicy %>" class="footer-text-footer"
+                        style="text-align: center; text-decoration: none; cursor: pointer; color: rgba(28, 24, 21, 1);
+                            line-height: 18px; font-style: normal; font-weight: 400; font-size: 14px; margin: 26px 5px 23px;">
+                        Политика конфиденциальности</a>
+                    <a href="<%= termsOfService %>" class="footer-text-footer"
+                        style="text-align: center; text-decoration: none; cursor: pointer; color: rgba(28, 24, 21, 1);
+                            line-height: 18px; font-style: normal; font-weight: 400; font-size: 14px; margin: 26px 5px 23px;">
+                        Пользовательское соглашение</a>
+                </span>
+
             </div>
+            <img src="/images/telegram.png" alt="telegram" class="footer-telegram-image"
+                style="cursor: pointer; width: 28px; height: 28px; margin-bottom: 20px;">
+            <a href="mailto:faces-castings@gmail.com" class="footer-email-name"
+                style="cursor: pointer;text-decoration: none; color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; line-height: 17px; font-style: normal; font-weight: 400; font-size: 13px; margin-bottom: 12px;">
+                faces-castings&#64;gmail.com
+            </a>
+            <p class="footer-bottom-text"
+                style="color: rgba(28, 24, 21, 1); font-family: 'Roboto', sans-serif; line-height: 14px; font-style: normal; font-weight: 300; font-size: 13px; margin-bottom: 24px;">
+                &#169; 2024 FACES
+            </p>
         </footer>
     </div>
+    <script>
+        function copyCode() {
+            var codeText = document.querySelector('.container-code-numbers').textContent;
+            var copyButton = document.querySelector('.container-code-btn-copy');
+            var buttonText = copyButton.querySelector('span');
+
+            navigator.clipboard.writeText(codeText).then(function () {
+                buttonText.textContent = 'Код скопирован';
+                setTimeout(function () {
+                    buttonText.textContent = 'Скопировать код подтверждения';
+                }, 2000);
+            }, function (err) {
+                console.error('Ошибка копирования: ', err);
+            });
+        }
+    </script>
 </body>
 
 </html>
