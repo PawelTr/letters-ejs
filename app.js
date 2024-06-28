@@ -20,15 +20,6 @@ router.get("/default-letter", (req, res, next) => {
   res.render("default-letter", data);
 });
 
-router.get("/confirmation-code", (req, res, next) => {
-  const data = {
-    code: "230672",
-    privacyPolicy: "#",
-    termsOfService: "#",
-  };
-  res.render("confirmation-code", data);
-});
-
 router.get("/confirmation-email", (req, res, next) => {
   const data = {
     privacyPolicy: "#",

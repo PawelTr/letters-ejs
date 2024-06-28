@@ -66,17 +66,15 @@
                     style="color: rgba(28, 24, 21, 1); font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 18px; line-height: 22px; margin-bottom: 60px; text-align: center;">
                     <%= message %>
                 </p>
-                <!-- <button class="content-btn-action"
-                    style="cursor: pointer; color: rgba(255, 255, 255, 1); font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 18px; line-height: 22px; width: 200px; height: 54px; background-color: rgba(28, 24, 21, 1); border-radius: 10px; border: none; margin-bottom: 50px;">
-                    <%= button %>
-                </button> -->
-                <div class="content-btn-action"
-                    style="display: flex; justify-content: center;align-items: center; cursor: pointer; width: 200px; height: 54px; background-color: rgba(28, 24, 21, 1); border-radius: 10px; border: none; margin-bottom: 50px;">
-                    <a href="<%= link %>"
-                        style="text-decoration: none; color: rgba(255, 255, 255, 1); font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 18px; line-height: 22px;">
-                        <%= button %>
-                    </a>
-                </div>
+                <a href="<%= link %>" style="text-decoration: none;">
+                    <div class="content-btn-action"
+                        style="display: inline-flex; justify-content: center; align-items: center; cursor: pointer; padding: 0 20px; height: 54px; background-color: rgba(28, 24, 21, 1); border-radius: 10px; border: none; margin-bottom: 50px;">
+                        <span
+                            style="color: rgba(255, 255, 255, 1); font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 18px; line-height: 22px;">
+                            <%= button %>
+                        </span>
+                    </div>
+                </a>
             </div>
         </main>
         <footer
